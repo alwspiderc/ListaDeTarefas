@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-weight: 900;
+}
+
+body{
+    background: #FF9142;
+    font-family: 'Poppins', sans-serif;
+   
+}
+
+header{
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.lista-logo{
+    position: absolute;
+    left: 20%;
+    right: 0;
+    top: 35px;
+}
+
+.lista-logo, .configuracoes{
+    width: 200px;
+}
+
+nav li{
+    display: inline;
+    padding-left: 20px; 
+    
+}
+
+nav{
+    position: absolute;
+    right: 20%;
+    top: 20px;
+}
+
+#colocar-tarefas{
+    text-align: center;
+    position: relative;
+    top: 220px; 
+}
+
+label{
+    font-size: 1.3rem;
+}
+
+#colocar-tarefas input{
+    border: none;
+    border-bottom:solid 4px; 
+    font-size: 1rem;
+    background: #FF9142;
+    outline: none;
+}
+
+#colocar-tarefas input:hover{
+    border-color: #F3E390; 
+}
+
+#enviar{
+    background: #F3E390;
+    width: 8%;
+    margin-top: 3%;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.lista-tarefas ul{
+    text-align: center;
+    position: relative;
+    top: 280px;
+}
+
+.lista-tarefas li{
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.lista-tarefas li input{
+    size: 10px;
+}
+
+.lista-tarefas ul button{
+    margin-left: 20px;
+    outline: none;
+}
+
+
+.botaoLixo{
+    border-radius: 5px;
+    border: 1px solid #191818;
+    width: 38px;
+    height: 38px;
+    margin-right: 8px;
+    cursor: pointer;
+    background: #F3E390;
+    color: #000;
+}
+
+footer{
+    text-align: center;
+    position: relative;
+    top: 500px;
+}
+
+
+
+
+
