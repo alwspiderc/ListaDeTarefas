@@ -1,47 +1,53 @@
-let enviar = document.querySelector('#enviar')
-let arrayTarefas = []
+const inputTarefa = document.querySelector("#tarefas");
+const botaoEnviar = document.querySelector("#enviar");
+const listaTarefas = document.querySelector("#tarefa-adicionada");
+const botaoLixo = document.querySelector(".botaoLixo");
+const tarefas = ["teste"];
 
-
-enviar.addEventListener('click', (ent) => {
-    let tarefas = document.querySelector('#tarefas')
-    
-    verificarCampo(tarefas.value)
-
-    let ul = document.querySelector('#tarefa-adicionada')
-
-    adicionarTarefas(tarefas.value)
+botaoEnviar.addEventListener("click", (e) => {
+  verificarCampo();
 });
 
+inputTarefa.addEventListener("keypress", (e) => {
+  if (e.keyCode == 13) {
+    verificarCampo();
+  }
+});
 
-function verificarCampo(tarefas){
-    let verificado
+botaoLixo.addEventListener("click", (e) => {
+  excluirTarefa();
+});
 
-    if(tarefas.length == 0){
-        alert('Por favor, digite uma tarefa.')
+const adicionarTarefas = () => {
+  const nomeTarefa = inputTarefa.value;
+  tarefas.push(nomeTarefa);
+  listarTarefas();
+};
+
+const verificarCampo = () => {
+  const nomeTarefa = inputTarefa.value;
+  if (nomeTarefa == "") {
+    alert("Digite uma tarefa no campo!");
+  } else {
+    if (nomeTarefa == tarefas[tarefas.length - 1]) {
+      alert("Voês já digitou essa tarefa!");
+    } else {
+      adicionarTarefas();
     }
+  }
+};
 
-    return verificado
-}
-
-function adicionarTarefas(tarefas){
-    let li = montarLi(tarefas)
-    let ul = document.querySelector('#tarefa-adicionada')
-    ul.appendChild(li)
-
-}
-
-function montarLi(tarefas){
-    let li = document.createElement('li')
-    li.innerHTML = '<input type="checkbox" id="tarefa-na-lista" name="tarefa-na-lista">'
-    li.innerHTML += `<label for="tarefa-na-lista">${tarefas}</label>`
-    
-    let button = document.createElement('button')
-    button.classList.add('botaoLixo')
-    button.innerHTML = `<i class="fa fa-trash"></i>`
-
-    li.appendChild(button)
-
-    return li
-}
-
+const listarTarefas = () => {
+  listaTarefas.innerHTML = "";
+  for (let tarefa of tarefas) {
+    const li = document.createElement("li");
+    li.innerHTML = `<li>
+    <input type="checkbox" id="tarefa-na-lista" name="tarefa-na-lista">
+    <label for="tarefa-na-lista">${tarefa}</label>
+    <button class="botaoLixo" id="1">
+      <i class="fa fa-trash"></i>
+    </button>`;
+    listaTarefas.appendChild(li);
+  }
+};
 
